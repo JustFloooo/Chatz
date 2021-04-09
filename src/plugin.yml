@@ -1,7 +1,7 @@
-main: Main.Main
+main: chatz.Main
 version: 1.1
 name: Chatz
-author: EisiGames
+author: JustFloooo
 api-version: 1.16
 depend: [Vault]
 softdepend: [PlaceholderAPI]
