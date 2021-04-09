@@ -9,7 +9,7 @@ public class VaultHook {
     private static final Chat chat = Main.getChat();
 
     public static String getPrimaryGroup(Player p) {
-        return chat.getPrimaryGroup(p);
+        return chat.getPrimaryGroup(p).contains("vip") ? "vip" : chat.getPrimaryGroup(p);
     }
 
     public static String getSuffix(Player p) {
