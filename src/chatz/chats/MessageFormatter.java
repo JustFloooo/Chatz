@@ -6,8 +6,6 @@ import org.bukkit.entity.Player;
 import java.util.Map;
 
 import static chatz.api.VaultHook.*;
-import static chatz.res.Number.round;
-import static chatz.Main.getMessageRange;
 import static chatz.res.Colors.getNamecolor;
 
 public class MessageFormatter {
@@ -27,17 +25,6 @@ public class MessageFormatter {
     public static String format(Player p, String hook){
         ChatColor cc = ChatColor.GRAY;
         return cc + "[" + hook + cc + "] " + w + format(p);
-    }
-
-    public static String format(Player p, String msg, double distance){
-        int radius = getMessageRange();
-        ChatColor cc = ChatColor.GRAY;
-        if(distance<radius*0.33){
-            cc = w;
-        } else if(distance>radius*0.66){
-            cc = g;
-        }
-        return cc + "(" + round(distance, 1) + "m)" + format(p) + cc + msg;
     }
 
 }

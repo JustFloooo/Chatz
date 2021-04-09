@@ -4,8 +4,6 @@ import chatz.chats.ChatListener;
 import chatz.tablist.JoinListener;
 import chatz.tablist.Tablist;
 import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,7 +12,6 @@ public class Main extends JavaPlugin {
 
     private static Chat chat = null;
     private static boolean papi = false;
-    private static final int messageRange = 250;
     private static final int timer = 1;
 
 
@@ -69,8 +66,6 @@ public class Main extends JavaPlugin {
     public static Chat getChat() {
         return chat;
     }
-
-    public static int getMessageRange() { return messageRange; }
 
     public static boolean isPapi() {
         return papi;

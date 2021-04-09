@@ -1,7 +1,7 @@
 package chatz.chats;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -9,7 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import static chatz.chats.MessageFormatter.format;
-import static chatz.Main.getMessageRange;
 
 public class ChatListener implements Listener {
 
@@ -36,13 +35,11 @@ public class ChatListener implements Listener {
                 break;
             default:
                 e.setCancelled(true);
-                int radius = getMessageRange();
-                for(Entity entity : p.getNearbyEntities(radius, radius, radius)){
-                    if(entity instanceof Player){
-                        entity.sendMessage(format(p, msg, p.getLocation().distance(entity.getLocation())));
+                for(Player receiver : Bukkit.getOnlinePlayers()) {
+                    if(receiver.getWorld() == p.getWorld()) {
+                        receiver.sendMessage(format(p) + msg);
                     }
                 }
-                p.sendMessage(format(p) + msg);
         }
     }
 }
