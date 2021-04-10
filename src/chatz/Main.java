@@ -1,6 +1,7 @@
 package chatz;
 
 import chatz.chats.ChatListener;
+import chatz.res.Colors;
 import chatz.tablist.JoinListener;
 import chatz.tablist.Tablist;
 import net.milkbowl.vault.chat.Chat;
@@ -23,6 +24,8 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("Loading Chatz Plugin.");
+
+        Colors.fillHashmap();
 
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             getLogger().warning(" Disarming Chatz. Vault is not present.");
